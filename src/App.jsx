@@ -1,10 +1,6 @@
+import Layout from "./components/Layout";
 function App() {
-  return (
-    <>
-      <h1>My React App</h1>
-      <p>This is a simple React application.</p>
-    </>
-  );
+  return <Layout></Layout>;
 }
 
 export default App;
