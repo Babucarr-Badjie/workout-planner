@@ -3,8 +3,11 @@ import Grid from "./components/Grid";
 function App() {
   return (
     <>
-      <Layout></Layout>
-      <Grid></Grid>
+      <Layout>
+        <main>
+          <Grid />
+        </main>
+      </Layout>
     </>
   );
 }
