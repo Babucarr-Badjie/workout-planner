@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Grid() {
-  return <></>;
+  return <div className="training-grid-plan"></div>;
 }
