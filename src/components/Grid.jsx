@@ -1,7 +1,12 @@
 import { workoutProgram as training_plan } from "../utilities";
+import WorkoutCard from "./WorkoutCard";
 
 export default function Grid() {
-  const isLocked = false;
+  const isLocked = true;
+
+  //   selectedWorkout
+  const selectedWorkout = 0;
+
   return (
     <div className="training-grid-plan">
       {Object.keys(training_plan).map((workout, workoutIndex) => {
@@ -12,6 +17,14 @@ export default function Grid() {
             : workoutIndex % 3 === 1
             ? "Pull"
             : "Legs";
+
+        // training plan
+        const trainingPlan = training_plan[workoutIndex];
+
+        // if condition to check if the workout is selected
+        if (workoutIndex === selectedWorkout) {
+          return <WorkoutCard />;
+        }
 
         return (
           <button key={workoutIndex}>
