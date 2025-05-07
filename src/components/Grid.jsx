@@ -5,7 +5,7 @@ export default function Grid() {
   const isLocked = true;
 
   //   selectedWorkout
-  const selectedWorkout = 0;
+  const selectedWorkout = 4;
 
   return (
     <div className="training-grid-plan">
@@ -23,11 +23,21 @@ export default function Grid() {
 
         // if condition to check if the workout is selected
         if (workoutIndex === selectedWorkout) {
-          return <WorkoutCard />;
+          return (
+            <WorkoutCard
+              key={workoutIndex}
+              trainingPlan={trainingPlan}
+              workoutIndex={workoutIndex}
+              type={type}
+            />
+          );
         }
 
         return (
-          <button key={workoutIndex}>
+          <button
+            className={"card plan-card " + (isLocked ? "inactive" : "")}
+            key={workoutIndex}
+          >
             <div className="plan-card-header">
               <p>
                 Day{" "}
