@@ -1,10 +1,8 @@
 export default function WorkoutCard(props) {
-
-  const {trainingPlan, workoutIndex, type} = props;
+  const { trainingPlan, workoutIndex, type, dayNumber, icon } = props;
 
   // destructure warmup and workout from trainingPlan
   const { warmup, workout } = trainingPlan || {};
-
 
   return (
     <div className="workout-container">
@@ -14,7 +12,6 @@ export default function WorkoutCard(props) {
           {icon}
         </div>
       </div>
-      
     </div>
   );
 }
