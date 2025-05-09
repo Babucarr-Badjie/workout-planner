@@ -58,6 +58,9 @@ export default function WorkoutCard(props) {
                 <p>
                   {workoutIndex + 1}. {workoutExercise.name}
                 </p>
+                <button className="help-icon">
+                  <i className="fa-regular fa-circle-question" />
+                </button>
               </div>
               <p className="exercise-info">{workoutExercise.sets}</p>
               <p className="exercise-info">{workoutExercise.reps}</p>
