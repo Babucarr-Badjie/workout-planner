@@ -8,7 +8,7 @@ export default function Grid() {
   const selectedWorkout = 4;
 
   return (
-    <div className="training-grid-plan">
+    <div className="training-plan-grid">
       {Object.keys(training_plan).map((workout, workoutIndex) => {
         // type
         const type =

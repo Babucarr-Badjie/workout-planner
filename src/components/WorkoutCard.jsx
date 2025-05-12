@@ -1,4 +1,5 @@
 import React from "react";
+import Modal from "./Modal";
 
 export default function WorkoutCard(props) {
   const { trainingPlan, workoutIndex, type, dayNumber, icon } = props;
@@ -6,8 +7,15 @@ export default function WorkoutCard(props) {
   // destructure warmup and workout from trainingPlan
   const { warmup, workout } = trainingPlan || {};
 
+  // showExerciseDescription
+  const showExerciseDescription = { name: "babu", description: "ok babu" };
+
   return (
     <div className="workout-container">
+      <Modal
+        showExerciseDescription={showExerciseDescription}
+        handleCloseModal={() => {}}
+      />
       <div className="workout-card card">
         <div className="plan-card-header">
           <p>Day {dayNumber}</p>
