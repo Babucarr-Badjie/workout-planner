@@ -69,6 +69,10 @@ export default function WorkoutCard(props) {
           );
         })}
       </div>
+      <div className="workout-buttons">
+        <button>Save & Exit</button>
+        <button disabled={true}>Complete</button>
+      </div>
     </div>
   );
 }
