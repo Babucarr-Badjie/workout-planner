@@ -3,13 +3,29 @@ import { workoutProgram as training_plan } from "../utilities";
 import WorkoutCard from "./WorkoutCard";
 
 export default function Grid() {
-  const isLocked = true;
+  // saved workout state variable
+  const [savedWorkouts, setSavedWorkouts] = useState(null);
+
+  // completed workout array
+  const completedWorkout = [];
+
+  const isLocked = false;
 
   //   selectedWorkout
   // const selectedWorkout = 4;
 
   // selectedWorkout state variable
   const [selectedWorkout, setSelectedWorkout] = useState(null);
+
+  // handle save workout function
+  function handleSave(index, data) {
+    // save to local storage and modify the saved Workouts state variable
+  }
+
+  // handle completed workout function
+  function handleComplete(index, data) {
+    // complete the workout and modify the completedWorkout array
+  }
 
   return (
     <div className="training-plan-grid">
@@ -49,6 +65,8 @@ export default function Grid() {
               type={type}
               dayNumber={dayNumber}
               icon={icon}
+              handleSave={handleSave}
+              handleComplete={handleComplete}
             />
           );
         }

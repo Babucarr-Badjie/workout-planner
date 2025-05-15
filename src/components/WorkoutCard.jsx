@@ -3,7 +3,16 @@ import Modal from "./Modal";
 import { exerciseDescriptions } from "../utilities";
 
 export default function WorkoutCard(props) {
-  const { trainingPlan, workoutIndex, type, dayNumber, icon } = props;
+  const {
+    trainingPlan,
+    workoutIndex,
+    type,
+    dayNumber,
+    icon,
+    savedWeights,
+    handleSave,
+    handleComplete,
+  } = props;
 
   // state variable showExerciseDescription
   const [showExerciseDescription, setShowExerciseDescription] = useState(null);
@@ -11,6 +20,15 @@ export default function WorkoutCard(props) {
   // destructure warmup and workout from trainingPlan
   const { warmup, workout } = trainingPlan || {};
 
+  // weights state variable
+  const [weights, setWeights] = useState(savedWeights || {});
+
+  // handle add weight function
+  function handleAddWeight(title, weight) {
+    // console.log(title, weight)
+    const newObject = { ...weights, [title]: weight };
+    setWeights(newObject);
+  }
   // showExerciseDescription
   // const showExerciseDescription = { name: "babu", description: "ok babu" };
 
@@ -75,12 +93,12 @@ export default function WorkoutCard(props) {
         <h6>Sets</h6>
         <h6>Reps</h6>
         <h6 className="weight-input">Max Weight</h6>
-        {workout.map((workoutExercise, workoutIndex) => {
+        {workout.map((workoutExercise, wIndex) => {
           return (
-            <React.Fragment key={workoutIndex}>
+            <React.Fragment key={wIndex}>
               <div className="exercise-name">
                 <p>
-                  {workoutIndex + 1}. {workoutExercise.name}
+                  {wIndex + 1}. {workoutExercise.name}
                 </p>
                 <button
                   className="help-icon"
@@ -96,14 +114,34 @@ export default function WorkoutCard(props) {
               </div>
               <p className="exercise-info">{workoutExercise.sets}</p>
               <p className="exercise-info">{workoutExercise.reps}</p>
-              <input className="weight-input" placeholder="14" />
+              <input
+                className="weight-input"
+                placeholder="14"
+                value={weights[workoutExercise.name] || ""}
+                onChange={(e) => {
+                  handleAddWeight(workoutExercise.name, e.target.value);
+                }}
+              />
             </React.Fragment>
           );
         })}
       </div>
       <div className="workout-buttons">
-        <button>Save & Exit</button>
-        <button disabled={true}>Complete</button>
+        <button
+          onClick={() => {
+            handleSave(workoutIndex, { weights });
+          }}
+        >
+          Save & Exit
+        </button>
+        <button
+          onClick={() => {
+            handleComplete(workoutIndex, { weights });
+          }}
+          disabled={true}
+        >
+          Complete
+        </button>
       </div>
     </div>
   );

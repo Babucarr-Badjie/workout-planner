@@ -12,7 +12,7 @@ export default function Hero() {
       {/* rules*/}
       <h3>The Rules</h3>
       <p>
-        To complete this program, tou <b>MUST</b> follow these 3 simple rules:
+        To complete this program, you <b>MUST</b> follow these 3 simple rules:
       </p>
       <ul className="rule-list">
         <div className="rule-item">
