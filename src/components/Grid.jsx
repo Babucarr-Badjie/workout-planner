@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { workoutProgram as training_plan } from "../utilities";
 import WorkoutCard from "./WorkoutCard";
 
@@ -42,6 +42,18 @@ export default function Grid() {
     handleSave(index, newObj);
   }
 
+  // useEffect to check if there is a saved workout in local storage
+  useEffect(() => {
+    if (!localStorage) {
+      return;
+    }
+    let savedData = {};
+    if (localStorage.getItem("workoutPlanner")) {
+      savedData = JSON.parse(localStorage.getItem("workoutPlanner"));
+    }
+    setSavedWorkouts(savedData);
+  }, []);
+
   return (
     <div className="training-plan-grid">
       {Object.keys(training_plan).map((workout, workoutIndex) => {
@@ -82,6 +94,7 @@ export default function Grid() {
               icon={icon}
               handleSave={handleSave}
               handleComplete={handleComplete}
+              savedWeights={savedWorkouts?.[workoutIndex]?.weights}
             />
           );
         }
