@@ -20,11 +20,26 @@ export default function Grid() {
   // handle save workout function
   function handleSave(index, data) {
     // save to local storage and modify the saved Workouts state variable
+    const newObj = {
+      ...savedWorkouts,
+      [index]: {
+        ...data,
+        isComplete: !!data.isComplete || !!savedWorkouts?.[index]?.isComplete,
+      },
+    };
+
+    // invoke setter function and write to local storage
+    setSavedWorkouts(newObj);
+    localStorage.setItem("workoutPlanner", JSON.stringify(newObj));
+    selectedWorkout(null);
   }
 
   // handle completed workout function
   function handleComplete(index, data) {
     // complete the workout and modify the completedWorkout array
+    const newObj = { ...data };
+    newObj.isComplete = true;
+    handleSave(index, newObj);
   }
 
   return (
