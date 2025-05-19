@@ -116,7 +116,7 @@ export default function WorkoutCard(props) {
               <p className="exercise-info">{workoutExercise.reps}</p>
               <input
                 className="weight-input"
-                placeholder="14"
+                placeholder="12"
                 value={weights[workoutExercise.name] || ""}
                 onChange={(e) => {
                   handleAddWeight(workoutExercise.name, e.target.value);
