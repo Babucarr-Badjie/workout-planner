@@ -138,7 +138,7 @@ export default function WorkoutCard(props) {
           onClick={() => {
             handleComplete(workoutIndex, { weights });
           }}
-          disabled={true}
+          disabled={Object.keys(weights).length !== workout.length}
         >
           Complete
         </button>

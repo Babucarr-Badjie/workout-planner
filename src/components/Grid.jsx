@@ -7,9 +7,12 @@ export default function Grid() {
   const [savedWorkouts, setSavedWorkouts] = useState(null);
 
   // completed workout array
-  const completedWorkout = [];
+  const completedWorkout = Object.keys(savedWorkouts || {}).filter((val) => {
+    const entry = savedWorkouts[val];
+    return entry.isComplete;
+  });
 
-  const isLocked = false;
+  // const isLocked = false;
 
   //   selectedWorkout
   // const selectedWorkout = 4;
@@ -31,7 +34,7 @@ export default function Grid() {
     // invoke setter function and write to local storage
     setSavedWorkouts(newObj);
     localStorage.setItem("workoutPlanner", JSON.stringify(newObj));
-    selectedWorkout(null);
+    setSelectedWorkout(null);
   }
 
   // handle completed workout function
@@ -57,7 +60,14 @@ export default function Grid() {
   return (
     <div className="training-plan-grid">
       {Object.keys(training_plan).map((workout, workoutIndex) => {
-        // type
+        // isLocked variable to check if the workout is locked
+        const isLocked =
+          workoutIndex === 0
+            ? false
+            : !completedWorkout.includes(`${workoutIndex - 1}`);
+
+        console.log(workoutIndex, isLocked);
+
         const type =
           workoutIndex % 3 === 0
             ? "Push"
@@ -105,6 +115,10 @@ export default function Grid() {
             key={workoutIndex}
             // add onClick to set selectedWorkout to workoutIndex
             onClick={() => {
+              // check if the workout is locked
+              if (isLocked) {
+                return;
+              }
               setSelectedWorkout(workoutIndex);
             }}
           >
