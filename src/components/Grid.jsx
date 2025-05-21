@@ -20,6 +20,9 @@ export default function Grid() {
   // selectedWorkout state variable
   const [selectedWorkout, setSelectedWorkout] = useState(null);
 
+  // storage key for local storage
+  const storageKey = "workoutPlanner";
+
   // handle save workout function
   function handleSave(index, data) {
     // save to local storage and modify the saved Workouts state variable
@@ -33,7 +36,7 @@ export default function Grid() {
 
     // invoke setter function and write to local storage
     setSavedWorkouts(newObj);
-    localStorage.setItem("workoutPlanner", JSON.stringify(newObj));
+    localStorage.setItem(storageKey, JSON.stringify(newObj));
     setSelectedWorkout(null);
   }
 
@@ -51,8 +54,8 @@ export default function Grid() {
       return;
     }
     let savedData = {};
-    if (localStorage.getItem("workoutPlanner")) {
-      savedData = JSON.parse(localStorage.getItem("workoutPlanner"));
+    if (localStorage.getItem(storageKey)) {
+      savedData = JSON.parse(localStorage.getItem(storageKey));
     }
     setSavedWorkouts(savedData);
   }, []);
