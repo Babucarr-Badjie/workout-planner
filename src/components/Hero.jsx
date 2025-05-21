@@ -6,7 +6,7 @@ export default function Hero() {
         <li>Follow a simple program with guarantee results</li>
         <li>Get fit, healthy, strong and shredded</li>
         <li>Learn more about gym, training and technique</li>
-        <li>Become a lifetime gym pro 💛</li>
+        <li>Become a lifetime gym pro 🦾</li>
       </ol>
 
       {/* rules*/}
