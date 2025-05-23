@@ -2,12 +2,12 @@ export default function Hero() {
   return (
     <>
       <h5>Complete this training program if you want to ...</h5>
-      <ol className="benefits-list">
-        <li>Follow a simple program with guaranteed results</li>
-        <li>Get fit, healthy, strong and shredded</li>
-        <li>Learn more about the gym, training and technique</li>
-        <li>Build lasting gym confidence 🦾</li>
-      </ol>
+      <div className="benefits-list">
+        <p>✅ Follow a simple program with guaranteed results.</p>
+        <p>✅ Get fit, healthy, strong and shredded.</p>
+        <p>✅ Learn more about the gym, training and technique.</p>
+        <p>✅ Build lasting gym confidence 🦾</p>
+      </div>
 
       {/* rules*/}
       <h3>The Rules</h3>
@@ -48,18 +48,24 @@ export default function Hero() {
       </small>
       <h3>The Training Plan</h3>
       <p>
-        This training plan uses a structure known as the <b>Bro Split</b>, and
-        follows this rotation ⬇️
+        This training plan uses a structure known as the{" "}
+        <abbr title="training one major muscle group per day, such as chest, back, shoulders, legs, and arms">
+          <b>Bro Split</b>
+        </abbr>
+        , and follows this rotation ⬇️
       </p>
       <p>
         <b>
           <i>Push &rarr; Pull &rarr; Legs &rarr; Repeat</i>
         </b>
       </p>
-      <p>
-        Complete all of the workouts below and track your progress along the way
-        ✅
-      </p>
+      <div className="card challenge">
+        <h3>🔥Your Challenge</h3>
+        <p>
+          Complete all of the workouts and track your progress along the way ✅
+        </p>
+        <button>Start Now &rarr;</button>
+      </div>
     </>
   );
 }
