@@ -71,6 +71,7 @@ export default function Grid() {
 
         console.log(workoutIndex, isLocked);
 
+        // workout type variable
         const type =
           workoutIndex % 3 === 0
             ? "Push"

@@ -6,7 +6,10 @@ function App() {
     <>
       <Layout>
         <main>
+          {/* PAGE 1 */}
           <Hero />
+
+          {/* PAGE 2 */}
           <Grid />
         </main>
       </Layout>

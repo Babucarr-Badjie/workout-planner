@@ -12,15 +12,15 @@ export default function Layout(props) {
 
   const footer = (
     <footer>
-      <p>
-        Design & written by{" "}
-        <a
-          href="https://babucarr-badjie-portfolio.netlify.app/"
-          target="_blank"
-        >
-          Babucarr Badjie
-        </a>
-      </p>
+      <p>Design & written by </p>
+      <a href="https://babucarr-badjie-portfolio.netlify.app/" target="_blank">
+        <img
+          src="https://avatars.githubusercontent.com/u/93027934?v=4"
+          alt=""
+        />
+        <p>Babucarr Badjie</p>
+        <i class="fa-regular fa-address-card"></i>
+      </a>
     </footer>
   );
   return (
