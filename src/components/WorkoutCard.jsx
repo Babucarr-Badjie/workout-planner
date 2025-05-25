@@ -116,7 +116,7 @@ export default function WorkoutCard(props) {
               <p className="exercise-info">{workoutExercise.reps}</p>
               <input
                 className="weight-input"
-                placeholder="12"
+                placeholder="12kg"
                 value={weights[workoutExercise.name] || ""}
                 onChange={(e) => {
                   handleAddWeight(workoutExercise.name, e.target.value);
@@ -126,13 +126,13 @@ export default function WorkoutCard(props) {
           );
         })}
       </div>
-      <div className="workout-buttons">
+      <div className="workout-buttons card">
         <button
           onClick={() => {
             handleSave(workoutIndex, { weights });
           }}
         >
-          Save & Exit
+          Save & Exit <i class="fa-solid fa-floppy-disk"></i>
         </button>
         <button
           onClick={() => {
@@ -140,7 +140,7 @@ export default function WorkoutCard(props) {
           }}
           disabled={Object.keys(weights).length !== workout.length}
         >
-          Complete
+          Complete <i class="fa-solid fa-check"></i>
         </button>
       </div>
     </div>

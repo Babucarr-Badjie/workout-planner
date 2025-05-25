@@ -16,6 +16,9 @@ export default function Modal(props) {
           <h6>Description</h6>
           <p>{description}</p>
         </div>
+        <button onClick={handleCloseModal}>
+          Close <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
     </div>,
     document.getElementById("portal")

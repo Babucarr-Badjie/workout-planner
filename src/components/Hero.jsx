@@ -1,4 +1,6 @@
-export default function Hero() {
+export default function Hero(props) {
+  // destructure displayWorkouts and startedWorkout from props
+  const { displayWorkouts, startedWorkout } = props;
   return (
     <>
       <h5>Complete this training program if you want to ...</h5>
@@ -64,7 +66,9 @@ export default function Hero() {
         <p>
           Complete all of the workouts and track your progress along the way ✅
         </p>
-        <button>Start Now &rarr;</button>
+        <button onClick={displayWorkouts} disabled={startedWorkout}>
+          Start Now &rarr;
+        </button>
       </div>
     </>
   );

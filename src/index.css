@@ -143,6 +143,15 @@ h3,
   align-items: center;
   gap: 1rem;
 }
+
+.workout-buttons button {
+  flex: 1;
+}
+
+.workout-buttons button i {
+  padding-left: 0.5rem;
+}
+
 footer {
   display: flex;
   align-items: center;
@@ -232,6 +241,10 @@ button.help-icon:hover {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.modal-content button i {
+  padding-left: 0.7rem;
 }
 
 @media (min-width: 640px) {
