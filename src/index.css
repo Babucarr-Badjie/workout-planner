@@ -81,8 +81,6 @@ h3,
   gap: 1rem;
 }
 
-
-
 .plan-card {
   position: relative;
   cursor: pointer;
@@ -271,6 +269,18 @@ h5 {
 
 h5 {
   margin-top: 0;
+}
+
+.progress-tracker {
+  background: var(--background-muted, #f9f9f9);
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.progress-tracker button {
+  margin-top: 0.5rem;
 }
 
 @media (min-width: 640px) {

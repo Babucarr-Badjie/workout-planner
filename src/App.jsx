@@ -3,6 +3,7 @@ import Grid from "./components/Grid";
 import Hero from "./components/Hero";
 import AuthModal from "./authComponents/AuthModal";
 import { useEffect, useState } from "react";
+import WorkoutProgress from "./components/WorkoutProgress";
 
 function App() {
   const [showWorkouts, setShowWorkouts] = useState(false);
@@ -42,8 +43,6 @@ function App() {
   return (
     <>
       <header style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-        
-        
         {user && (
           <button onClick={handleLogout} style={{ marginLeft: "auto" }}>
             Logout
@@ -52,7 +51,6 @@ function App() {
       </header>
       <Layout>
         <main>
-          {/* PAGE 1 */}
           <Hero
             displayWorkouts={displayWorkouts}
             startedWorkout={showWorkouts}
@@ -66,8 +64,7 @@ function App() {
             />
           )}
 
-          {/* PAGE 2 */}
-          {/* <Grid /> */}
+          {user && <WorkoutProgress user={user} />}
         </main>
       </Layout>
     </>
