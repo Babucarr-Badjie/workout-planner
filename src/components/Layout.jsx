@@ -2,10 +2,10 @@ export default function Layout(props) {
   const { children } = props;
 
   const header = (
-    <header>
+    <header className = 'header'>
       <h1 className="text-gradient">Workout Planner</h1>
       <p>
-        <strong>The 30 Simple Workouts Program</strong>
+        <strong>The 30 days Simple Workouts Program</strong>
       </p>
     </header>
   );

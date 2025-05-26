@@ -1,17 +1,10 @@
 export default function Hero(props) {
   // destructure displayWorkouts and startedWorkout from props
   const { displayWorkouts, startedWorkout } = props;
-  return (
-    <>
-      <h5>Complete this training program if you want to ...</h5>
-      <div className="benefits-list">
-        <p>✅ Follow a simple program with guaranteed results.</p>
-        <p>✅ Get fit, healthy, strong and shredded.</p>
-        <p>✅ Learn more about the gym, training and technique.</p>
-        <p>✅ Build lasting gym confidence 🦾</p>
-      </div>
 
-      {/* rules*/}
+  // create Rules const to display the rules of the training program
+  const rules = (
+    <section style={{ display: "none" }}>
       <h3>The Rules</h3>
       <p>
         To complete this program, you <b>MUST</b> follow these 3 simple rules:
@@ -48,6 +41,21 @@ export default function Hero(props) {
         * The first and second set should be at 75% and 85% of your working
         weight used for the last two sets.{" "}
       </small>
+    </section>
+  );
+  return (
+    <>
+      <h5>Complete this training program if you want to ...</h5>
+      <div className="benefits-list">
+        <p>✅ Follow a simple program with guaranteed results.</p>
+        <p>✅ Get fit, healthy, strong and shredded.</p>
+        <p>✅ Learn more about the gym, training and technique.</p>
+        <p>✅ Build lasting gym confidence 🦾</p>
+      </div>
+
+      {/* rules*/}
+      {rules}
+
       <h3>The Training Plan</h3>
       <p>
         This training plan uses a structure known as the{" "}
